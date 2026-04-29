@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daily Stock Advisor — Today's Top Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg-elev: #11161f;
+    --bg-card: #161c27;
+    --border: #1f2733;
+    --border-strong: #2a3441;
+    --text: #e6edf3;
+    --text-dim: #8b96a7;
+    --text-muted: #5a6574;
+    --accent: #f5d76e;       /* gold */
+    --accent-2: #5fb3d1;     /* steel blue */
+    --green: #4ade80;
+    --green-dim: #16331f;
+    --red: #f87171;
+    --red-dim: #3a1818;
+    --orange: #fb923c;
+    --grid-line: rgba(255,255,255,0.04);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* ====== Header ====== */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand { display: flex; flex-direction: column; gap: 4px; }
+  .brand-title {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--text);
+  }
+  .brand-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .brand-sub {
+    color: var(--text-dim);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .timestamp {
+    text-align: right;
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .timestamp .date {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* ====== Tabs ====== */
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab-count {
+    color: var(--text-muted);
+    margin-left: 6px;
+    font-size: 10px;
+  }
+
+  /* ====== Summary bar ====== */
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .summary-cell {
+    background: var(--bg-elev);
+    padding: 14px 18px;
+  }
+  .summary-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .summary-value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .summary-value.accent { color: var(--accent); }
+
+  /* ====== Card list ====== */
+  .stock-list { display: flex; flex-direction: column; gap: 8px; }
+  .stock-card {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    padding: 16px 20px;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .stock-card:hover {
+    border-color: var(--border-strong);
+    border-left-color: var(--accent);
+    background: var(--bg-elev);
+  }
+  .stock-card.expanded {
+    border-left-color: var(--accent);
+  }
+
+  .rank {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-muted);
+    line-height: 1;
+    text-align: center;
+  }
+  .stock-card:nth-child(1) .rank { color: var(--accent); }
+  .stock-card:nth-child(2) .rank { color: #d4d4d4; }
+  .stock-card:nth-child(3) .rank { color: #cd7f32; }
+
+  .stock-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .stock-header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .ticker {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.03em;
+  }
+  .price {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .change {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .change.up { background: var(--green-dim); color: var(--green); }
+  .change.down { background: var(--red-dim); color: var(--red); }
+  .change.flat { background: var(--border); color: var(--text-dim); }
+
+  .signal-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .signal-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    background: rgba(245, 215, 110, 0.08);
+    border: 1px solid rgba(245, 215, 110, 0.2);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+  }
+  .signal-tag.warn {
+    background: rgba(248, 113, 113, 0.08);
+    border-color: rgba(248, 113, 113, 0.2);
+    color: var(--red);
+  }
+  .signal-tag.neutral {
+    background: rgba(139, 150, 167, 0.08);
+    border-color: rgba(139, 150, 167, 0.2);
+    color: var(--text-dim);
+  }
+
+  /* ====== Score block ====== */
+  .score-block {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 120px;
+  }
+  .score-value {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .score-bar {
+    width: 110px;
+    height: 4px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .score-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    transition: width 0.4s;
+  }
+  .score-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ====== Expanded details ====== */
+  .details {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-strong);
+    display: none;
+  }
+  .stock-card.expanded .details { display: block; }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .detail-item {
+    background: var(--bg-elev);
+    padding: 10px 12px;
+    border-left: 2px solid var(--border-strong);
+  }
+  .detail-name {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .detail-score {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .detail-note { color: var(--text); font-size: 12px; }
+
+  .indicators-row {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-strong);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+  }
+  .indicator { font-size: 11px; color: var(--text-dim); }
+  .indicator-label { color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; }
+  .indicator-value { color: var(--text); font-size: 13px; font-weight: 500; margin-top: 2px; }
+
+  /* ====== Empty/error ====== */
+  .empty, .error {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+  .error { color: var(--red); }
+
+  /* ====== Footer ====== */
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  footer .disclaimer {
+    background: rgba(248, 113, 113, 0.05);
+    border-left: 2px solid var(--red);
+    padding: 12px 16px;
+    margin-top: 12px;
+    color: var(--text-dim);
+  }
+  footer .weights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  footer .weight-item { color: var(--text-dim); }
+  footer .weight-item strong { color: var(--accent); }
+
+  /* ====== Mobile ====== */
+  @media (max-width: 700px) {
+    .container { padding: 20px 12px 60px; }
+    .brand-title { font-size: 28px; }
+    .stock-card {
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      padding: 14px 14px;
+    }
+    .score-block {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      margin-top: 8px;
+      border-top: 1px dashed var(--border);
+      min-width: 0;
+    }
+    .score-bar { width: 80px; }
+    .score-value { font-size: 28px; }
+    .rank { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <div class="brand-title">Daily <em>Picks</em></div>
+      <div class="brand-sub">Technical Screening · Top 10</div>
+    </div>
+    <div class="timestamp">
+      <div class="date" id="header-date">—</div>
+      <div id="header-time">—</div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-market="JP">日本株 <span class="tab-count" id="count-jp">—</span></button>
+    <button class="tab" data-market="US">米国株 <span class="tab-count" id="count-us">—</span></button>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div id="content">
+    <div class="empty">読み込み中...</div>
+  </div>
+
+  <footer>
+    <div><strong style="color:var(--text);">スコアの内訳:</strong></div>
+    <div class="weights" id="weights">—</div>
+    <div class="disclaimer" id="disclaimer">—</div>
+  </footer>
+</div>
+
+<script>
+// データソース: 同ディレクトリの data/recommendations.json
+// GitHub Actionsで毎営業日更新される
+const DATA_URL = 'data/recommendations.json';
+
+let currentData = null;
+let currentMarket = 'JP';
+
+async function loadData() {
+  try {
+    // キャッシュ回避でクエリパラメータ付与
+    const r = await fetch(DATA_URL + '?t=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    currentData = await r.json();
+    render();
+  } catch (e) {
+    document.getElementById('content').innerHTML =
+      `<div class="error">データの読み込みに失敗しました: ${e.message}<br>
+      <span style="color:var(--text-muted);font-size:12px;">data/recommendations.json が存在することを確認してください。GitHub Actionsの初回実行が完了していない可能性があります。</span></div>`;
+  }
+}
+
+function render() {
+  if (!currentData) return;
+
+  // Header timestamp
+  const ts = new Date(currentData.generated_at);
+  document.getElementById('header-date').textContent =
+    ts.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' });
+  document.getElementById('header-time').textContent =
+    'Generated ' + ts.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' }) + ' JST';
+
+  // Tab counts
+  document.getElementById('count-jp').textContent = `(${currentData.markets.JP.all_scanned})`;
+  document.getElementById('count-us').textContent = `(${currentData.markets.US.all_scanned})`;
+
+  // Weights footer
+  const w = currentData.weights;
+  document.getElementById('weights').innerHTML = Object.entries(w)
+    .map(([k, v]) => `<span class="weight-item"><strong>${k}</strong> ${v}%</span>`).join('');
+
+  document.getElementById('disclaimer').textContent = currentData.disclaimer;
+
+  renderMarket();
+}
+
+function renderMarket() {
+  const data = currentData.markets[currentMarket];
+  const list = data.top || [];
+
+  // Summary
+  const avgScore = list.length ? (list.reduce((s, x) => s + x.total_score, 0) / list.length).toFixed(1) : '—';
+  const upCount = list.filter(x => x.change_pct > 0).length;
+  const downCount = list.filter(x => x.change_pct < 0).length;
+  const topGainer = list.length ? [...list].sort((a, b) => b.change_pct - a.change_pct)[0] : null;
+
+  document.getElementById('summary').innerHTML = `
+    <div class="summary-cell">
+      <div class="summary-label">Top Pick</div>
+      <div class="summary-value accent">${list[0]?.ticker || '—'}</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Avg Score</div>
+      <div class="summary-value">${avgScore}</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Up / Down</div>
+      <div class="summary-value"><span style="color:var(--green)">${upCount}</span> / <span style="color:var(--red)">${downCount}</span></div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Top Gainer</div>
+      <div class="summary-value">${topGainer ? topGainer.ticker + ' ' + (topGainer.change_pct >= 0 ? '+' : '') + topGainer.change_pct.toFixed(1) + '%' : '—'}</div>
+    </div>
+    <div class="summary-cell">
+      <div class="summary-label">Scanned</div>
+      <div class="summary-value">${data.all_scanned}</div>
+    </div>
+  `;
+
+  // Cards
+  if (!list.length) {
+    document.getElementById('content').innerHTML = '<div class="empty">該当銘柄がありません</div>';
+    return;
+  }
+
+  document.getElementById('content').innerHTML =
+    '<div class="stock-list">' + list.map((s, i) => renderCard(s, i + 1)).join('') + '</div>';
+
+  // Card click toggle
+  document.querySelectorAll('.stock-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      card.classList.toggle('expanded');
+    });
+  });
+}
+
+function renderCard(s, rank) {
+  const chgClass = s.change_pct > 0.05 ? 'up' : (s.change_pct < -0.05 ? 'down' : 'flat');
+  const chgStr = (s.change_pct >= 0 ? '+' : '') + s.change_pct.toFixed(2) + '%';
+
+  // Build signal tags from notes
+  const tags = [];
+  for (const [key, note] of Object.entries(s.notes)) {
+    const sc = s.scores[key];
+    let cls = 'signal-tag';
+    if (sc >= 80) cls = 'signal-tag';        // gold (positive)
+    else if (sc <= 25) cls = 'signal-tag warn';
+    else if (sc >= 70 || sc <= 35) cls = 'signal-tag';
+    else continue; // neutral skipped to reduce noise
+    tags.push(`<span class="${cls}">${note}</span>`);
+  }
+
+  const ind = s.indicators;
+  const fmtN = v => v == null ? '—' : v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+
+  // Detail rows
+  const detailRows = Object.entries(s.notes).map(([key, note]) => {
+    const sc = s.scores[key];
+    return `<div class="detail-item">
+      <div class="detail-name"><span>${labelFor(key)}</span><span class="detail-score">${sc}</span></div>
+      <div class="detail-note">${note}</div>
+    </div>`;
+  }).join('');
+
+  return `
+    <div class="stock-card" data-ticker="${s.ticker}">
+      <div class="rank">${String(rank).padStart(2, '0')}</div>
+      <div class="stock-main">
+        <div class="stock-header">
+          <span class="ticker">${s.ticker}</span>
+          <span class="price">${fmtN(s.price)}</span>
+          <span class="change ${chgClass}">${chgStr}</span>
+        </div>
+        <div class="signal-tags">${tags.join('') || '<span class="signal-tag neutral">特筆すべきシグナルなし</span>'}</div>
+      </div>
+      <div class="score-block">
+        <div class="score-value" style="color:${scoreColor(s.total_score)}">${s.total_score.toFixed(1)}</div>
+        <div class="score-bar"><div class="score-bar-fill" style="width:${Math.min(100, s.total_score)}%"></div></div>
+        <div class="score-label">Total Score</div>
+      </div>
+      <div class="details">
+        <div class="details-grid">${detailRows}</div>
+        <div class="indicators-row">
+          <div class="indicator"><div class="indicator-label">RSI(14)</div><div class="indicator-value">${fmtN(ind.rsi)}</div></div>
+          <div class="indicator"><div class="indicator-label">SMA25</div><div class="indicator-value">${fmtN(ind.sma25)}</div></div>
+          <div class="indicator"><div class="indicator-label">SMA75</div><div class="indicator-value">${fmtN(ind.sma75)}</div></div>
+          <div class="indicator"><div class="indicator-label">MACD Hist</div><div class="indicator-value">${fmtN(ind.macd_hist)}</div></div>
+          <div class="indicator"><div class="indicator-label">BB Upper</div><div class="indicator-value">${fmtN(ind.bb_upper)}</div></div>
+          <div class="indicator"><div class="indicator-label">BB Lower</div><div class="indicator-value">${fmtN(ind.bb_lower)}</div></div>
+          <div class="indicator"><div class="indicator-label">Avg Vol 20d</div><div class="indicator-value">${fmtN(s.avg_volume_20d)}</div></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function labelFor(key) {
+  return ({
+    trend: 'トレンド', rsi: 'RSI', macd: 'MACD',
+    bollinger: 'ボリンジャー', volume: '出来高', momentum: 'モメンタム'
+  })[key] || key;
+}
+
+function scoreColor(s) {
+  if (s >= 70) return 'var(--accent)';
+  if (s >= 55) return 'var(--text)';
+  if (s >= 40) return 'var(--text-dim)';
+  return 'var(--text-muted)';
+}
+
+// Tab switch
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMarket = btn.dataset.market;
+    renderMarket();
+  });
+});
+
+loadData();
+</script>
+</body>
+</html>
