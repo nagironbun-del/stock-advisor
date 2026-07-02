@@ -2,11 +2,18 @@ name: Daily Stock Analysis
 
 on:
   schedule:
-    - cron: '0 23 * * 0-4'
+    # 23:17 UTC (日-木) = 日本時間 翌朝 8:17 (00分は混雑して遅延しやすいためずらす)
+    - cron: '17 23 * * 0-4'
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write   # 失敗通知Issue用
+
+# 定時実行と手動実行が重なっても同時に走らないようにする
+concurrency:
+  group: daily-analysis
+  cancel-in-progress: false
 
 jobs:
   analyze:
@@ -15,10 +22,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
           cache: 'pip'
@@ -29,8 +36,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
-      - name: Run analysis
-        run: python scripts/analyze.py
+      - name: Run analysis (最大3回リトライ)
+        run: |
+          for i in 1 2 3; do
+            if python scripts/analyze.py; then
+              exit 0
+            fi
+            echo "::warning::attempt $i failed; retrying in 60s"
+            sleep 60
+          done
+          echo "::error::analysis failed after 3 attempts"
+          exit 1
 
       - name: Commit & push results
         run: |
@@ -42,5 +58,15 @@ jobs:
           else
             DATE_JST=$(TZ=Asia/Tokyo date +'%Y-%m-%d %H:%M JST')
             git commit -m "Update recommendations - ${DATE_JST}"
+            git pull --rebase origin ${{ github.ref_name }}
             git push
           fi
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "⚠️ Daily Stock Analysis 失敗 $(TZ=Asia/Tokyo date +'%Y-%m-%d')" \
+            --body "自動実行が失敗しました。ログ: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
