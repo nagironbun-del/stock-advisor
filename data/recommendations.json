@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-09T10:05:13.640092+09:00",
-  "generated_at_utc": "2026-07-09T01:05:25.509195+00:00",
+  "generated_at": "2026-07-10T10:02:14.046832+09:00",
+  "generated_at_utc": "2026-07-10T01:02:20.165451+00:00",
   "weights": {
     "trend": 25,
     "rsi": 20,
@@ -14,85 +14,217 @@
     "JP": {
       "top": [
         {
-          "ticker": "9983.T",
-          "price": 86880.0,
-          "change_pct": -0.25,
-          "avg_volume_20d": 956870,
-          "turnover_proxy": 83132865600,
-          "total_score": 64.5,
+          "ticker": "4063.T",
+          "price": 7300.0,
+          "change_pct": 4.14,
+          "avg_volume_20d": 6912620,
+          "turnover_proxy": 50462126000,
+          "total_score": 75.0,
           "indicators": {
-            "rsi": 65.7,
-            "sma25": 82639.6,
-            "sma75": 75230.27,
-            "macd_hist": 179.406,
-            "bb_upper": 87939.34,
-            "bb_lower": 79340.66
+            "rsi": 53.0,
+            "sma25": 7138.52,
+            "sma75": 7001.96,
+            "macd_hist": 0.781,
+            "bb_upper": 7644.65,
+            "bb_lower": 6757.65
           },
           "scores": {
             "trend": 95,
-            "rsi": 45,
-            "macd": 60,
-            "bollinger": 35,
+            "rsi": 55,
+            "macd": 95,
+            "bollinger": 55,
             "volume": 60,
-            "momentum": 85
+            "momentum": 70
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=65.7)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB上半分 (やや過熱)",
+            "rsi": "中立 (RSI=53.0)",
+            "macd": "MACDゴールデンクロス発生",
+            "bollinger": "BB中央付近",
             "volume": "出来高やや増 (1.0倍)",
-            "momentum": "5日リターン +5.5%"
+            "momentum": "5日リターン +4.9%"
           },
           "market": "JP"
         },
         {
-          "ticker": "8035.T",
-          "price": 70540.0,
-          "change_pct": 4.74,
-          "avg_volume_20d": 4595815,
-          "turnover_proxy": 324188790100,
-          "total_score": 62.2,
+          "ticker": "8411.T",
+          "price": 8291.0,
+          "change_pct": 0.94,
+          "avg_volume_20d": 8648510,
+          "turnover_proxy": 71704796410,
+          "total_score": 64.5,
           "indicators": {
-            "rsi": 53.1,
-            "sma25": 70428.4,
-            "sma75": 54383.06,
-            "macd_hist": -1478.091,
-            "bb_upper": 79338.82,
-            "bb_lower": 66770.18
+            "rsi": 65.1,
+            "sma25": 7882.12,
+            "sma75": 7181.79,
+            "macd_hist": 18.551,
+            "bb_upper": 8393.98,
+            "bb_lower": 7529.02
+          },
+          "scores": {
+            "trend": 95,
+            "rsi": 45,
+            "macd": 75,
+            "bollinger": 35,
+            "volume": 45,
+            "momentum": 70
+          },
+          "notes": {
+            "trend": "強い上昇トレンド (パーフェクトオーダー)",
+            "rsi": "やや買われすぎ (RSI=65.1)",
+            "macd": "MACD強気拡大中",
+            "bollinger": "BB上半分 (やや過熱)",
+            "volume": "出来高並 (0.8倍)",
+            "momentum": "5日リターン +2.6%"
+          },
+          "market": "JP"
+        },
+        {
+          "ticker": "6367.T",
+          "price": 25145.0,
+          "change_pct": -0.12,
+          "avg_volume_20d": 1153180,
+          "turnover_proxy": 28996711100,
+          "total_score": 64.5,
+          "indicators": {
+            "rsi": 59.1,
+            "sma25": 24239.8,
+            "sma75": 22801.64,
+            "macd_hist": 62.133,
+            "bb_upper": 26274.37,
+            "bb_lower": 22714.63
+          },
+          "scores": {
+            "trend": 95,
+            "rsi": 55,
+            "macd": 60,
+            "bollinger": 55,
+            "volume": 60,
+            "momentum": 35
+          },
+          "notes": {
+            "trend": "強い上昇トレンド (パーフェクトオーダー)",
+            "rsi": "中立 (RSI=59.1)",
+            "macd": "MACD強気だが鈍化",
+            "bollinger": "BB中央付近",
+            "volume": "出来高やや増 (1.0倍)",
+            "momentum": "5日リターン -2.1%"
+          },
+          "market": "JP"
+        },
+        {
+          "ticker": "6857.T",
+          "price": 30160.0,
+          "change_pct": 3.43,
+          "avg_volume_20d": 8484395,
+          "turnover_proxy": 255889353200,
+          "total_score": 63.5,
+          "indicators": {
+            "rsi": 52.0,
+            "sma25": 29763.2,
+            "sma75": 27363.02,
+            "macd_hist": -400.741,
+            "bb_upper": 34434.72,
+            "bb_lower": 27043.28
           },
           "scores": {
             "trend": 95,
             "rsi": 55,
             "macd": 45,
-            "bollinger": 70,
+            "bollinger": 55,
             "volume": 45,
-            "momentum": 35
+            "momentum": 70
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "中立 (RSI=53.1)",
+            "rsi": "中立 (RSI=52.0)",
             "macd": "MACD弱気だが収束中",
-            "bollinger": "BB下半分 (買い候補)",
+            "bollinger": "BB中央付近",
+            "volume": "出来高並 (0.9倍)",
+            "momentum": "5日リターン +2.8%"
+          },
+          "market": "JP"
+        },
+        {
+          "ticker": "8035.T",
+          "price": 73300.0,
+          "change_pct": 3.15,
+          "avg_volume_20d": 4445055,
+          "turnover_proxy": 325822531500,
+          "total_score": 62.0,
+          "indicators": {
+            "rsi": 56.7,
+            "sma25": 71003.2,
+            "sma75": 54861.39,
+            "macd_hist": -1223.312,
+            "bb_upper": 79114.1,
+            "bb_lower": 67576.9
+          },
+          "scores": {
+            "trend": 95,
+            "rsi": 55,
+            "macd": 45,
+            "bollinger": 55,
+            "volume": 45,
+            "momentum": 55
+          },
+          "notes": {
+            "trend": "強い上昇トレンド (パーフェクトオーダー)",
+            "rsi": "中立 (RSI=56.7)",
+            "macd": "MACD弱気だが収束中",
+            "bollinger": "BB中央付近",
             "volume": "出来高並 (0.7倍)",
-            "momentum": "5日リターン -3.3%"
+            "momentum": "5日リターン +0.1%"
+          },
+          "market": "JP"
+        },
+        {
+          "ticker": "8766.T",
+          "price": 7664.0,
+          "change_pct": -2.62,
+          "avg_volume_20d": 5701325,
+          "turnover_proxy": 43694954800,
+          "total_score": 62.0,
+          "indicators": {
+            "rsi": 57.8,
+            "sma25": 7354.48,
+            "sma75": 7281.99,
+            "macd_hist": 62.841,
+            "bb_upper": 7943.26,
+            "bb_lower": 6765.24
+          },
+          "scores": {
+            "trend": 95,
+            "rsi": 55,
+            "macd": 60,
+            "bollinger": 35,
+            "volume": 45,
+            "momentum": 55
+          },
+          "notes": {
+            "trend": "強い上昇トレンド (パーフェクトオーダー)",
+            "rsi": "中立 (RSI=57.8)",
+            "macd": "MACD強気だが鈍化",
+            "bollinger": "BB上半分 (やや過熱)",
+            "volume": "出来高並 (0.9倍)",
+            "momentum": "5日リターン +1.1%"
           },
           "market": "JP"
         },
         {
           "ticker": "8306.T",
-          "price": 3412.0,
-          "change_pct": -0.61,
-          "avg_volume_20d": 34967070,
-          "turnover_proxy": 119307642840,
+          "price": 3432.0,
+          "change_pct": 0.53,
+          "avg_volume_20d": 33587370,
+          "turnover_proxy": 115271853840,
           "total_score": 61.5,
           "indicators": {
-            "rsi": 65.3,
-            "sma25": 3267.52,
-            "sma75": 3002.24,
-            "macd_hist": 8.982,
-            "bb_upper": 3453.71,
-            "bb_lower": 3125.99
+            "rsi": 66.7,
+            "sma25": 3276.12,
+            "sma75": 3014.48,
+            "macd_hist": 8.864,
+            "bb_upper": 3467.73,
+            "bb_lower": 3139.17
           },
           "scores": {
             "trend": 95,
@@ -104,7 +236,7 @@
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=65.3)",
+            "rsi": "やや買われすぎ (RSI=66.7)",
             "macd": "MACD強気だが鈍化",
             "bollinger": "BB上半分 (やや過熱)",
             "volume": "出来高並 (0.9倍)",
@@ -114,18 +246,18 @@
         },
         {
           "ticker": "8316.T",
-          "price": 6764.0,
-          "change_pct": -0.69,
-          "avg_volume_20d": 12610225,
-          "turnover_proxy": 85295561900,
+          "price": 6824.0,
+          "change_pct": 0.12,
+          "avg_volume_20d": 11821655,
+          "turnover_proxy": 80670973720,
           "total_score": 61.5,
           "indicators": {
-            "rsi": 64.9,
-            "sma25": 6467.44,
-            "sma75": 5889.53,
-            "macd_hist": 16.33,
-            "bb_upper": 6882.51,
-            "bb_lower": 6191.39
+            "rsi": 67.9,
+            "sma25": 6493.28,
+            "sma75": 5915.43,
+            "macd_hist": 17.612,
+            "bb_upper": 6929.72,
+            "bb_lower": 6191.18
           },
           "scores": {
             "trend": 95,
@@ -137,61 +269,28 @@
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=64.9)",
+            "rsi": "やや買われすぎ (RSI=67.9)",
             "macd": "MACD強気だが鈍化",
             "bollinger": "BB上半分 (やや過熱)",
             "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +2.9%"
+            "momentum": "5日リターン +2.3%"
           },
           "market": "JP"
         },
         {
-          "ticker": "8411.T",
-          "price": 8217.0,
-          "change_pct": -0.4,
-          "avg_volume_20d": 8975105,
-          "turnover_proxy": 73748437785,
+          "ticker": "9433.T",
+          "price": 2805.5,
+          "change_pct": 0.02,
+          "avg_volume_20d": 8805740,
+          "turnover_proxy": 24704503570,
           "total_score": 61.5,
           "indicators": {
-            "rsi": 63.5,
-            "sma25": 7859.24,
-            "sma75": 7149.44,
-            "macd_hist": 17.247,
-            "bb_upper": 8363.89,
-            "bb_lower": 7486.61
-          },
-          "scores": {
-            "trend": 95,
-            "rsi": 45,
-            "macd": 60,
-            "bollinger": 35,
-            "volume": 45,
-            "momentum": 70
-          },
-          "notes": {
-            "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=63.5)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB上半分 (やや過熱)",
-            "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +3.1%"
-          },
-          "market": "JP"
-        },
-        {
-          "ticker": "8766.T",
-          "price": 7799.0,
-          "change_pct": 1.29,
-          "avg_volume_20d": 5789095,
-          "turnover_proxy": 45149151905,
-          "total_score": 61.5,
-          "indicators": {
-            "rsi": 63.7,
-            "sma25": 7324.92,
-            "sma75": 7255.78,
-            "macd_hist": 71.832,
-            "bb_upper": 7891.23,
-            "bb_lower": 6776.27
+            "rsi": 60.5,
+            "sma25": 2725.1,
+            "sma75": 2673.75,
+            "macd_hist": 11.154,
+            "bb_upper": 2820.15,
+            "bb_lower": 2620.25
           },
           "scores": {
             "trend": 95,
@@ -203,7 +302,7 @@
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=63.7)",
+            "rsi": "やや買われすぎ (RSI=60.5)",
             "macd": "MACD強気拡大中",
             "bollinger": "BB上限タッチ (過熱)",
             "volume": "出来高並 (0.8倍)",
@@ -212,85 +311,19 @@
           "market": "JP"
         },
         {
-          "ticker": "6367.T",
-          "price": 25305.0,
-          "change_pct": -0.61,
-          "avg_volume_20d": 1153030,
-          "turnover_proxy": 29177424150,
-          "total_score": 61.5,
-          "indicators": {
-            "rsi": 61.4,
-            "sma25": 24187.2,
-            "sma75": 22714.27,
-            "macd_hist": 120.509,
-            "bb_upper": 26274.0,
-            "bb_lower": 22516.5
-          },
-          "scores": {
-            "trend": 95,
-            "rsi": 45,
-            "macd": 60,
-            "bollinger": 35,
-            "volume": 60,
-            "momentum": 55
-          },
-          "notes": {
-            "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=61.4)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB上半分 (やや過熱)",
-            "volume": "出来高やや増 (1.0倍)",
-            "momentum": "5日リターン +0.8%"
-          },
-          "market": "JP"
-        },
-        {
-          "ticker": "9433.T",
-          "price": 2802.5,
-          "change_pct": -0.2,
-          "avg_volume_20d": 9071855,
-          "turnover_proxy": 25423873637,
-          "total_score": 61.5,
-          "indicators": {
-            "rsi": 60.2,
-            "sma25": 2718.84,
-            "sma75": 2671.31,
-            "macd_hist": 10.518,
-            "bb_upper": 2812.36,
-            "bb_lower": 2624.14
-          },
-          "scores": {
-            "trend": 95,
-            "rsi": 45,
-            "macd": 75,
-            "bollinger": 15,
-            "volume": 45,
-            "momentum": 70
-          },
-          "notes": {
-            "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=60.2)",
-            "macd": "MACD強気拡大中",
-            "bollinger": "BB上限タッチ (過熱)",
-            "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +2.9%"
-          },
-          "market": "JP"
-        },
-        {
           "ticker": "7267.T",
-          "price": 1495.5,
-          "change_pct": -1.93,
-          "avg_volume_20d": 18081725,
-          "turnover_proxy": 27041219737,
+          "price": 1508.5,
+          "change_pct": 0.43,
+          "avg_volume_20d": 17781280,
+          "turnover_proxy": 26823060880,
           "total_score": 59.2,
           "indicators": {
-            "rsi": 54.5,
-            "sma25": 1460.16,
-            "sma75": 1366.94,
-            "macd_hist": 5.346,
-            "bb_upper": 1588.68,
-            "bb_lower": 1342.47
+            "rsi": 56.4,
+            "sma25": 1462.98,
+            "sma75": 1370.46,
+            "macd_hist": 2.643,
+            "bb_upper": 1592.81,
+            "bb_lower": 1348.74
           },
           "scores": {
             "trend": 80,
@@ -302,44 +335,11 @@
           },
           "notes": {
             "trend": "上昇トレンド",
-            "rsi": "中立 (RSI=54.5)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB中央付近",
-            "volume": "出来高並 (1.0倍)",
-            "momentum": "5日リターン -2.1%"
-          },
-          "market": "JP"
-        },
-        {
-          "ticker": "6501.T",
-          "price": 4763.0,
-          "change_pct": -0.31,
-          "avg_volume_20d": 12635735,
-          "turnover_proxy": 60184005805,
-          "total_score": 57.8,
-          "indicators": {
-            "rsi": 50.1,
-            "sma25": 4736.8,
-            "sma75": 4872.77,
-            "macd_hist": 33.285,
-            "bb_upper": 4957.74,
-            "bb_lower": 4419.06
-          },
-          "scores": {
-            "trend": 60,
-            "rsi": 55,
-            "macd": 60,
-            "bollinger": 55,
-            "volume": 45,
-            "momentum": 70
-          },
-          "notes": {
-            "trend": "短期反発・押し目",
-            "rsi": "中立 (RSI=50.1)",
+            "rsi": "中立 (RSI=56.4)",
             "macd": "MACD強気だが鈍化",
             "bollinger": "BB中央付近",
             "volume": "出来高並 (0.9倍)",
-            "momentum": "5日リターン +2.0%"
+            "momentum": "5日リターン -2.7%"
           },
           "market": "JP"
         }
@@ -349,52 +349,85 @@
     "US": {
       "top": [
         {
-          "ticker": "JPM",
-          "price": 330.62,
-          "change_pct": -2.54,
-          "avg_volume_20d": 10663914,
-          "turnover_proxy": 3525703310,
-          "total_score": 66.5,
+          "ticker": "UNH",
+          "price": 431.68,
+          "change_pct": 1.43,
+          "avg_volume_20d": 6273436,
+          "turnover_proxy": 2708117216,
+          "total_score": 64.0,
           "indicators": {
-            "rsi": 57.2,
-            "sma25": 322.63,
-            "sma75": 308.43,
-            "macd_hist": 0.005,
-            "bb_upper": 344.46,
-            "bb_lower": 309.18
+            "rsi": 65.0,
+            "sma25": 410.84,
+            "sma75": 363.89,
+            "macd_hist": 0.126,
+            "bb_upper": 435.03,
+            "bb_lower": 393.94
           },
           "scores": {
             "trend": 95,
-            "rsi": 55,
-            "macd": 60,
-            "bollinger": 55,
-            "volume": 60,
+            "rsi": 45,
+            "macd": 95,
+            "bollinger": 15,
+            "volume": 45,
             "momentum": 55
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "中立 (RSI=57.2)",
-            "macd": "MACD強気だが鈍化",
+            "rsi": "やや買われすぎ (RSI=65.0)",
+            "macd": "MACDゴールデンクロス発生",
+            "bollinger": "BB上限タッチ (過熱)",
+            "volume": "出来高並 (0.8倍)",
+            "momentum": "5日リターン +1.2%"
+          },
+          "market": "US"
+        },
+        {
+          "ticker": "TSLA",
+          "price": 406.55,
+          "change_pct": 3.17,
+          "avg_volume_20d": 47167141,
+          "turnover_proxy": 19175800597,
+          "total_score": 63.8,
+          "indicators": {
+            "rsi": 50.9,
+            "sma25": 401.2,
+            "sma75": 396.15,
+            "macd_hist": 1.08,
+            "bb_upper": 429.5,
+            "bb_lower": 369.64
+          },
+          "scores": {
+            "trend": 80,
+            "rsi": 55,
+            "macd": 75,
+            "bollinger": 55,
+            "volume": 60,
+            "momentum": 35
+          },
+          "notes": {
+            "trend": "上昇トレンド",
+            "rsi": "中立 (RSI=50.9)",
+            "macd": "MACD強気拡大中",
             "bollinger": "BB中央付近",
-            "volume": "出来高やや増 (1.1倍)",
-            "momentum": "5日リターン +1.5%"
+            "volume": "出来高やや増 (1.0倍)",
+            "momentum": "5日リターン -4.4%"
           },
           "market": "US"
         },
         {
           "ticker": "AAPL",
-          "price": 313.39,
-          "change_pct": 0.88,
-          "avg_volume_20d": 66444157,
-          "turnover_proxy": 20822935476,
+          "price": 316.22,
+          "change_pct": 0.9,
+          "avg_volume_20d": 65325708,
+          "turnover_proxy": 20657295510,
           "total_score": 63.0,
           "indicators": {
-            "rsi": 62.2,
-            "sma25": 298.33,
-            "sma75": 283.62,
-            "macd_hist": 2.425,
-            "bb_upper": 315.56,
-            "bb_lower": 275.71
+            "rsi": 63.9,
+            "sma25": 298.37,
+            "sma75": 284.53,
+            "macd_hist": 2.735,
+            "bb_upper": 318.69,
+            "bb_lower": 275.15
           },
           "scores": {
             "trend": 95,
@@ -406,127 +439,94 @@
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=62.2)",
+            "rsi": "やや買われすぎ (RSI=63.9)",
             "macd": "MACD強気拡大中",
             "bollinger": "BB上限タッチ (過熱)",
             "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +8.3%"
+            "momentum": "5日リターン +7.4%"
           },
           "market": "US"
         },
         {
-          "ticker": "GOOGL",
-          "price": 361.92,
-          "change_pct": -1.39,
-          "avg_volume_20d": 36488716,
-          "turnover_proxy": 13205996602,
-          "total_score": 63.0,
+          "ticker": "NOW",
+          "price": 108.84,
+          "change_pct": 0.98,
+          "avg_volume_20d": 23406401,
+          "turnover_proxy": 2547552642,
+          "total_score": 62.8,
           "indicators": {
-            "rsi": 50.3,
-            "sma25": 359.45,
-            "sma75": 352.32,
-            "macd_hist": 1.764,
-            "bb_upper": 377.27,
-            "bb_lower": 338.96
+            "rsi": 56.4,
+            "sma25": 103.82,
+            "sma75": 100.23,
+            "macd_hist": 1.294,
+            "bb_upper": 113.3,
+            "bb_lower": 89.16
           },
           "scores": {
-            "trend": 95,
+            "trend": 80,
             "rsi": 55,
-            "macd": 60,
-            "bollinger": 55,
-            "volume": 25,
-            "momentum": 55
-          },
-          "notes": {
-            "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "中立 (RSI=50.3)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB中央付近",
-            "volume": "出来高低調 (0.7倍)",
-            "momentum": "5日リターン +1.3%"
-          },
-          "market": "US"
-        },
-        {
-          "ticker": "NVDA",
-          "price": 204.12,
-          "change_pct": 3.65,
-          "avg_volume_20d": 149865559,
-          "turnover_proxy": 30590557365,
-          "total_score": 62.2,
-          "indicators": {
-            "rsi": 51.0,
-            "sma25": 204.15,
-            "sma75": 201.56,
-            "macd_hist": 0.115,
-            "bb_upper": 213.48,
-            "bb_lower": 189.91
-          },
-          "scores": {
-            "trend": 50,
-            "rsi": 55,
-            "macd": 95,
-            "bollinger": 55,
+            "macd": 75,
+            "bollinger": 35,
             "volume": 45,
             "momentum": 70
           },
           "notes": {
-            "trend": "もみ合い",
-            "rsi": "中立 (RSI=51.0)",
-            "macd": "MACDゴールデンクロス発生",
-            "bollinger": "BB中央付近",
-            "volume": "出来高並 (0.9倍)",
-            "momentum": "5日リターン +2.0%"
-          },
-          "market": "US"
-        },
-        {
-          "ticker": "AVGO",
-          "price": 388.69,
-          "change_pct": 4.83,
-          "avg_volume_20d": 30769297,
-          "turnover_proxy": 11959718281,
-          "total_score": 62.2,
-          "indicators": {
-            "rsi": 50.3,
-            "sma25": 390.89,
-            "sma75": 388.88,
-            "macd_hist": 0.596,
-            "bb_upper": 404.26,
-            "bb_lower": 357.1
-          },
-          "scores": {
-            "trend": 50,
-            "rsi": 55,
-            "macd": 95,
-            "bollinger": 55,
-            "volume": 45,
-            "momentum": 70
-          },
-          "notes": {
-            "trend": "もみ合い",
-            "rsi": "中立 (RSI=50.3)",
-            "macd": "MACDゴールデンクロス発生",
-            "bollinger": "BB中央付近",
+            "trend": "上昇トレンド",
+            "rsi": "中立 (RSI=56.4)",
+            "macd": "MACD強気拡大中",
+            "bollinger": "BB上半分 (やや過熱)",
             "volume": "出来高並 (0.8倍)",
             "momentum": "5日リターン +2.9%"
           },
           "market": "US"
         },
         {
-          "ticker": "JNJ",
-          "price": 263.4,
-          "change_pct": -1.44,
-          "avg_volume_20d": 9058205,
-          "turnover_proxy": 2385931168,
+          "ticker": "AMD",
+          "price": 546.72,
+          "change_pct": 5.66,
+          "avg_volume_20d": 30648089,
+          "turnover_proxy": 16755922702,
+          "total_score": 62.0,
+          "indicators": {
+            "rsi": 55.9,
+            "sma25": 520.46,
+            "sma75": 400.59,
+            "macd_hist": -4.547,
+            "bb_upper": 579.4,
+            "bb_lower": 471.96
+          },
+          "scores": {
+            "trend": 95,
+            "rsi": 55,
+            "macd": 45,
+            "bollinger": 55,
+            "volume": 45,
+            "momentum": 55
+          },
+          "notes": {
+            "trend": "強い上昇トレンド (パーフェクトオーダー)",
+            "rsi": "中立 (RSI=55.9)",
+            "macd": "MACD弱気だが収束中",
+            "bollinger": "BB中央付近",
+            "volume": "出来高並 (0.9倍)",
+            "momentum": "5日リターン +1.1%"
+          },
+          "market": "US"
+        },
+        {
+          "ticker": "LLY",
+          "price": 1216.95,
+          "change_pct": 0.09,
+          "avg_volume_20d": 3136609,
+          "turnover_proxy": 3817097203,
           "total_score": 61.5,
           "indicators": {
-            "rsi": 67.6,
-            "sma25": 242.31,
-            "sma75": 234.79,
-            "macd_hist": 2.169,
-            "bb_upper": 270.06,
-            "bb_lower": 221.79
+            "rsi": 63.8,
+            "sma25": 1155.51,
+            "sma75": 1024.97,
+            "macd_hist": 2.07,
+            "bb_upper": 1260.16,
+            "bb_lower": 1065.68
           },
           "scores": {
             "trend": 95,
@@ -538,127 +538,28 @@
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=67.6)",
+            "rsi": "やや買われすぎ (RSI=63.8)",
             "macd": "MACD強気だが鈍化",
             "bollinger": "BB上半分 (やや過熱)",
             "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +3.7%"
+            "momentum": "5日リターン +2.1%"
           },
           "market": "US"
         },
         {
-          "ticker": "NOW",
-          "price": 107.78,
-          "change_pct": -2.66,
-          "avg_volume_20d": 24295648,
-          "turnover_proxy": 2618584949,
-          "total_score": 61.2,
+          "ticker": "JNJ",
+          "price": 259.1,
+          "change_pct": -1.63,
+          "avg_volume_20d": 9032691,
+          "turnover_proxy": 2340370487,
+          "total_score": 61.5,
           "indicators": {
-            "rsi": 55.3,
-            "sma25": 104.57,
-            "sma75": 100.25,
-            "macd_hist": 1.289,
-            "bb_upper": 112.98,
-            "bb_lower": 89.29
-          },
-          "scores": {
-            "trend": 80,
-            "rsi": 55,
-            "macd": 60,
-            "bollinger": 35,
-            "volume": 45,
-            "momentum": 85
-          },
-          "notes": {
-            "trend": "上昇トレンド",
-            "rsi": "中立 (RSI=55.3)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB上半分 (やや過熱)",
-            "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +8.6%"
-          },
-          "market": "US"
-        },
-        {
-          "ticker": "BRK-B",
-          "price": 494.79,
-          "change_pct": -1.83,
-          "avg_volume_20d": 5270790,
-          "turnover_proxy": 2607934451,
-          "total_score": 61.2,
-          "indicators": {
-            "rsi": 52.0,
-            "sma25": 491.62,
-            "sma75": 481.78,
-            "macd_hist": 0.317,
-            "bb_upper": 508.09,
-            "bb_lower": 480.89
-          },
-          "scores": {
-            "trend": 80,
-            "rsi": 55,
-            "macd": 60,
-            "bollinger": 55,
-            "volume": 45,
-            "momentum": 55
-          },
-          "notes": {
-            "trend": "上昇トレンド",
-            "rsi": "中立 (RSI=52.0)",
-            "macd": "MACD強気だが鈍化",
-            "bollinger": "BB中央付近",
-            "volume": "出来高並 (0.7倍)",
-            "momentum": "5日リターン -1.1%"
-          },
-          "market": "US"
-        },
-        {
-          "ticker": "PLTR",
-          "price": 132.22,
-          "change_pct": -1.6,
-          "avg_volume_20d": 44794850,
-          "turnover_proxy": 5922775234,
-          "total_score": 60.8,
-          "indicators": {
-            "rsi": 53.6,
-            "sma25": 128.52,
-            "sma75": 137.43,
-            "macd_hist": 2.126,
-            "bb_upper": 142.35,
-            "bb_lower": 108.13
-          },
-          "scores": {
-            "trend": 60,
-            "rsi": 55,
-            "macd": 75,
-            "bollinger": 35,
-            "volume": 60,
-            "momentum": 85
-          },
-          "notes": {
-            "trend": "短期反発・押し目",
-            "rsi": "中立 (RSI=53.6)",
-            "macd": "MACD強気拡大中",
-            "bollinger": "BB上半分 (やや過熱)",
-            "volume": "出来高やや増 (1.1倍)",
-            "momentum": "5日リターン +13.3%"
-          },
-          "market": "US"
-        },
-        {
-          "ticker": "LLY",
-          "price": 1215.83,
-          "change_pct": -1.6,
-          "avg_volume_20d": 3227145,
-          "turnover_proxy": 3923660049,
-          "total_score": 60.0,
-          "indicators": {
-            "rsi": 63.7,
-            "sma25": 1149.4,
-            "sma75": 1020.81,
-            "macd_hist": 3.218,
-            "bb_upper": 1253.41,
-            "bb_lower": 1065.2
+            "rsi": 62.4,
+            "sma25": 243.76,
+            "sma75": 235.13,
+            "macd_hist": 1.536,
+            "bb_upper": 271.47,
+            "bb_lower": 222.59
           },
           "scores": {
             "trend": 95,
@@ -666,15 +567,114 @@
             "macd": 60,
             "bollinger": 35,
             "volume": 45,
-            "momentum": 55
+            "momentum": 70
           },
           "notes": {
             "trend": "強い上昇トレンド (パーフェクトオーダー)",
-            "rsi": "やや買われすぎ (RSI=63.7)",
+            "rsi": "やや買われすぎ (RSI=62.4)",
             "macd": "MACD強気だが鈍化",
             "bollinger": "BB上半分 (やや過熱)",
             "volume": "出来高並 (0.8倍)",
-            "momentum": "5日リターン +1.4%"
+            "momentum": "5日リターン +2.0%"
+          },
+          "market": "US"
+        },
+        {
+          "ticker": "PLTR",
+          "price": 129.04,
+          "change_pct": -2.41,
+          "avg_volume_20d": 44621854,
+          "turnover_proxy": 5758003830,
+          "total_score": 59.2,
+          "indicators": {
+            "rsi": 50.3,
+            "sma25": 127.59,
+            "sma75": 137.15,
+            "macd_hist": 1.964,
+            "bb_upper": 142.0,
+            "bb_lower": 108.18
+          },
+          "scores": {
+            "trend": 60,
+            "rsi": 55,
+            "macd": 60,
+            "bollinger": 55,
+            "volume": 60,
+            "momentum": 70
+          },
+          "notes": {
+            "trend": "短期反発・押し目",
+            "rsi": "中立 (RSI=50.3)",
+            "macd": "MACD強気だが鈍化",
+            "bollinger": "BB中央付近",
+            "volume": "出来高やや増 (1.0倍)",
+            "momentum": "5日リターン +2.6%"
+          },
+          "market": "US"
+        },
+        {
+          "ticker": "NVDA",
+          "price": 202.78,
+          "change_pct": -0.66,
+          "avg_volume_20d": 147434521,
+          "turnover_proxy": 29896772181,
+          "total_score": 58.2,
+          "indicators": {
+            "rsi": 49.7,
+            "sma25": 203.35,
+            "sma75": 201.96,
+            "macd_hist": 0.485,
+            "bb_upper": 212.83,
+            "bb_lower": 190.02
+          },
+          "scores": {
+            "trend": 50,
+            "rsi": 55,
+            "macd": 75,
+            "bollinger": 55,
+            "volume": 45,
+            "momentum": 70
+          },
+          "notes": {
+            "trend": "もみ合い",
+            "rsi": "中立 (RSI=49.7)",
+            "macd": "MACD強気拡大中",
+            "bollinger": "BB中央付近",
+            "volume": "出来高並 (0.9倍)",
+            "momentum": "5日リターン +2.6%"
+          },
+          "market": "US"
+        },
+        {
+          "ticker": "AVGO",
+          "price": 401.11,
+          "change_pct": 3.2,
+          "avg_volume_20d": 30433784,
+          "turnover_proxy": 12207295015,
+          "total_score": 56.2,
+          "indicators": {
+            "rsi": 54.1,
+            "sma25": 387.7,
+            "sma75": 390.1,
+            "macd_hist": 2.456,
+            "bb_upper": 406.02,
+            "bb_lower": 356.29
+          },
+          "scores": {
+            "trend": 60,
+            "rsi": 55,
+            "macd": 75,
+            "bollinger": 15,
+            "volume": 45,
+            "momentum": 85
+          },
+          "notes": {
+            "trend": "短期反発・押し目",
+            "rsi": "中立 (RSI=54.1)",
+            "macd": "MACD強気拡大中",
+            "bollinger": "BB上限タッチ (過熱)",
+            "volume": "出来高並 (0.9倍)",
+            "momentum": "5日リターン +8.6%"
           },
           "market": "US"
         }
